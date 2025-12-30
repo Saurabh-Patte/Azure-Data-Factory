@@ -48,7 +48,27 @@ CREATE or ALTER VIEW gold.[Returns] AS select * from OPENROWSET(
 CREATE or ALTER VIEW gold.Sales AS select * from OPENROWSET(
     BULK'https://awstoragedatalakespatte.dfs.core.windows.net/silver/T_Sales/',
                             FORMAT = 'Parquet'        ) 
-                            as Query_Sales;        GO              
+                            as Query_Sales;        GO    
+--CREATE VIEW Sales 2015
+-------------------------
+CREATE or ALTER VIEW gold.Sales AS select * from OPENROWSET(
+    BULK'https://awstoragedatalakespatte.dfs.core.windows.net/silver/T_Sales_2015/',
+                            FORMAT = 'Parquet'        ) 
+                            as Query_Sales_2015;        GO       
+
+--CREATE VIEW Sales 2016
+-------------------------
+CREATE or ALTER VIEW gold.Sales AS select * from OPENROWSET(
+    BULK'https://awstoragedatalakespatte.dfs.core.windows.net/silver/T_Sales_2016/',
+                            FORMAT = 'Parquet'        ) 
+                            as Query_Sales_2016;    select * from Query_Sales_2016    GO   
+
+--CREATE VIEW Sales 2017
+-------------------------
+CREATE or ALTER VIEW gold.Sales AS select * from OPENROWSET(
+    BULK'https://awstoragedatalakespatte.dfs.core.windows.net/silver/T_Sales_2017/',
+                            FORMAT = 'Parquet'        ) 
+                            as Query_Sales_2017;        GO                                   
 -------------------------
 --CREATE VIEW Territories
 -------------------------
